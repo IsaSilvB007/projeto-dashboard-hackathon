@@ -22,3 +22,21 @@ export const renderCountriesList = (countries, elementId) => {
 
   element.innerHTML = html;
 }
+
+export const renderTableSkeleton = (elementId, rows = 5) => {
+  const element = document.querySelector(elementId);
+  const skeletonRow = `
+    <tr>
+      <td>
+        <div class="country-info">
+          <div class="skeleton flag-skeleton"></div>
+          <div class="skeleton td-skeleton" style="width: 120px;"></div>
+        </div>
+      </td>
+      <td><div class="skeleton td-skeleton" style="width: 80px;"></div></td>
+      <td class="text-right"><div class="skeleton td-skeleton" style="width: 20px; float: right;"></div></td>
+    </tr>
+  `;
+  
+  element.innerHTML = skeletonRow.repeat(rows);
+};

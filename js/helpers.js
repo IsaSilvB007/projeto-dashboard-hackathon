@@ -30,3 +30,17 @@ export const filterCountries = (inputValue, selectValue, countries) => {
     );
   }
 }
+
+export const toggleChartLoading = (wrapperId, isLoading) => {
+  const wrapper = document.getElementById(wrapperId);
+  const loader = wrapper.querySelector('.loader');
+  const canvas = wrapper.querySelector('canvas');
+
+  if (isLoading) {
+    loader.classList.remove('hidden');
+    canvas.classList.add('hidden');
+  } else {
+    loader.classList.add('hidden');
+    canvas.classList.remove('hidden');
+  }
+};
