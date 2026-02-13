@@ -151,41 +151,6 @@
   text-align: right;
 }
 
-/* CSS relacionado ao skeleton de carregamento da lista */
-@keyframes skeleton-loading {
-  0% { background-color: #e2e5e7; }
-  100% { background-color: #f3f4f6; }
-}
-
-.skeleton {
-  animation: skeleton-loading 1s linear infinite alternate;
-  border-radius: 4px;
-  display: block;
-}
-
-.td-skeleton {
-  height: 20px;
-  margin: 10px 0;
-  width: 80%;
-}
-
-.flag-skeleton {
-  width: 30px;
-  height: 20px;
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.chart-loading-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hidden {
-  display: none !important;
-}
-
 @media (max-width: 768px) {
   .charts-container > div {
     height: 300px;
