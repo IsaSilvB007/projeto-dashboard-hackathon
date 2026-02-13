@@ -13,12 +13,14 @@
         <h2 id="charts-heading" class="sr-only">Estatísticas dos Países</h2>
         
         <div class="charts-container">
-          <div role="img" aria-label="Gráfico mostrando a distribuição de países por sub-região">
-            <canvas id="countryChart"></canvas>
+          <div id="wrapper-country" class="chart-loading-container" role="img" aria-label="Gráfico mostrando a distribuição de países por sub-região">
+            <span class="loader"></span>
+            <canvas id="countryChart" class="hidden"></canvas>
           </div>
           
-          <div role="img" aria-label="Gráfico comparativo de população por região">
-            <canvas id="populationChart"></canvas>
+          <div id="wrapper-population" class="chart-loading-container" role="img" aria-label="Gráfico comparativo de população por região">
+            <span class="loader"></span>
+            <canvas id="populationChart" class="hidden"></canvas>
           </div>
         </div>
       </section>
@@ -65,6 +67,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/events.js" type="module"></script>
-    <script src="js/chart.js" type="module"></script>
+    <script src="js/app.js" type="module"></script>
   </body>
 </html>
