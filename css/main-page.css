@@ -151,6 +151,10 @@
   text-align: right;
 }
 
+.text-center {
+  text-align: center;
+}
+
 /* CSS relacionado ao skeleton de carregamento da lista */
 @keyframes skeleton-loading {
   0% { background-color: #e2e5e7; }
