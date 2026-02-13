@@ -1,26 +1,4 @@
-import { getCountriesByRegion, getPopulationByRegion } from './helpers.js';
-import { mockData } from './mock.js';
-import { renderCountriesList } from './ui.js';
-import { sortCountriesList } from './helpers.js';
 import { regionColors, translatedRegions } from './constants.js';
-
-// Essa parte é temporária e simula os dados recuperados na session storage
-const newData = mockData.map(country => ({
-  name: country.translations.por.common,
-  region: country.region.toLowerCase(),
-  population: country.population,
-  flag: country.flags.svg,
-  cca3: country.cca3
-}));
-const countries = sortCountriesList(newData);
-
-renderCountriesList(countries, '#countries-list');
-
-const countryChart = document.getElementById('countryChart');
-const populationChart = document.getElementById('populationChart');
-
-const countriesByRegion = getCountriesByRegion(countries);
-const populationByRegion = getPopulationByRegion(countries);
 
 const barOptions = {
   responsive: true,
@@ -40,7 +18,7 @@ const pieOptions = {
   }
 };
 
-const createChart = (chartElement, type, data, options) => {
+export const createMainPageChart = (chartElement, type, data) => {
   new Chart(chartElement, {
     type: type,
     data: {
@@ -52,9 +30,6 @@ const createChart = (chartElement, type, data, options) => {
         borderWidth: 1
       }]
     },
-    options: options
+    options: type === 'bar' ? barOptions : pieOptions
   });
 }
-
-createChart(countryChart, 'bar', countriesByRegion, barOptions);
-createChart(populationChart, 'pie', populationByRegion, pieOptions);
