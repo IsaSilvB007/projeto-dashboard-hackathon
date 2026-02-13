@@ -3,7 +3,8 @@ import { translatedRegions } from "./constants.js";
 export const renderCountriesList = (countries, elementId) => {
   const element = document.querySelector(elementId);
 
-  const html = countries.map(country => `
+  const html = countries.length ? 
+  countries.map(country => `
     <tr>
       <td>
         <div class="country-info">
@@ -18,7 +19,14 @@ export const renderCountriesList = (countries, elementId) => {
         </a>
       </td>
     </tr>
-  `).join('');
+  `).join('') : 
+  ` 
+    <tr role="status" aria-live="polite">
+      <td colspan="3" class="text-center">
+        Nenhum país encontrado para a busca realizada.
+      </td>
+    </tr>
+  `;
 
   element.innerHTML = html;
 }
