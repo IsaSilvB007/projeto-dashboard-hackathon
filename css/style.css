@@ -1,0 +1,18 @@
+:root {
+  --main-bg-color: #f4f4f4;
+  --card-bg-color: #ffffff;
+  --focus-hover-color: rgba(150, 152, 153, 0.5);
+  --border-color: #e2e8f0;
+  --row-hover: #f8fafc;
+}
+
+body {
+  background-color: var(--main-bg-color);
+  padding: 40px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+}
