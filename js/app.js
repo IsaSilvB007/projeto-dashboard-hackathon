@@ -31,8 +31,8 @@ const init = async () => {
     const countriesByRegion = getCountriesByRegion(countries);
     const populationByRegion = getPopulationByRegion(countries);
 
-    createMainPageChart(document.getElementById('countryChart'), 'bar', countriesByRegion);
-    createMainPageChart(document.getElementById('populationChart'), 'pie', populationByRegion);
+    createMainPageChart(document.getElementById('countryChart'), 'bar', countriesByRegion, 'Quantidade de Países por Região');
+    createMainPageChart(document.getElementById('populationChart'), 'pie', populationByRegion, 'População por Região');
 
     toggleChartLoading('wrapper-country', false);
     toggleChartLoading('wrapper-population', false);

@@ -18,13 +18,13 @@ const pieOptions = {
   }
 };
 
-export const createMainPageChart = (chartElement, type, data) => {
+export const createMainPageChart = (chartElement, type, data, label) => {
   new Chart(chartElement, {
     type: type,
     data: {
       labels: Object.keys(data).map(region => translatedRegions[region]),
       datasets: [{
-        label: 'Quantidade de Países por Região',
+        label: label,
         data: Object.keys(data).map(region => data[region]),
         backgroundColor: regionColors,
         borderWidth: 1
