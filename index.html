@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Dashboard</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main-page.css">
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <main>
+      <section aria-labelledby="charts-heading">
+        <h2 id="charts-heading" class="sr-only">Estatísticas dos Países</h2>
+        
+        <div class="charts-container">
+          <div role="img" aria-label="Gráfico mostrando a distribuição de países por sub-região">
+            <canvas id="countryChart"></canvas>
+          </div>
+          
+          <div role="img" aria-label="Gráfico comparativo de população por região">
+            <canvas id="populationChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section id="country-list" class="main-card" aria-labelledby="list-heading">
+        <h2 id="list-heading" class="sr-only">Listagem de Países</h2>
+        <header class="list-controls">
+          <form role="search" class="filter-form" onsubmit="event.preventDefault();">
+            <div class="input-group">
+              <label for="search-input" class="sr-only">Pesquisar países</label>
+              <input type="search" id="search-input" placeholder="Buscar países por nome">
+            </div>
+
+            <div class="input-group">
+              <label for="region-filter" class="sr-only">Filtrar por região</label>
+              <select id="region-filter">
+                <option value="all">Todas as regiões</option>
+                <option value="africa">África</option>
+                <option value="americas">Américas</option>
+                <option value="asia">Ásia</option>
+                <option value="europe">Europa</option>
+                <option value="oceania">Oceania</option>
+                <option value="antarctic">Antártida</option>
+              </select>
+            </div>
+          </form>
+        </header>
+
+        <section class="table-responsive">
+          <table class="country-table">
+            <thead>
+              <tr>
+                <th>País</th>
+                <th>Região</th>
+                <th class="text-right"></th>
+              </tr>
+            </thead>
+            <tbody id="countries-list">
+            </tbody>
+          </table>
+        </section>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/events.js" type="module"></script>
+    <script src="js/chart.js" type="module"></script>
+  </body>
 </html>
