@@ -82,9 +82,43 @@ async function buscarClima(capital) {
         loadingClima.style.display = 'none';
         conteudoClima.style.display = 'block';
 
+        renderizarGrafico();
+
         console.log("Simulação de clima concluída para:", capital);
     } catch (erro) {
         console.error("Erro na simulação:", erro);
         loadingClima.textContent = "Erro na Simulação";
     }
+}
+
+function renderizarGrafico() {
+    const ctx = document.getElementById('previsaoChart').getContext('2d');
+
+    //Dados fictícios para os próximos 5 dias
+    const labels = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex'];
+    const temperaturas = [22, 24, 23, 25, 22];
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Temperatura (°C)',
+                data: temperaturas,
+                borderColor: '#3498db',
+                backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                borderWidth: 3,
+                fill: true, // Cria a área sombreada abaixo da linha
+                tension: 0.3 // Deixa a linha elegante em curva
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: false // Melhor para temperaturas
+                }
+            }
+        }
+    });
 }
