@@ -1,10 +1,10 @@
-//Pega toda a parte de endereços da URL atual
+// Pega toda a parte de endereços da URL atual
 const parametros = new URLSearchParams(window.location.search);
 
-//Procura especificamente pelo valor que está depois de "code="
+// Procura especificamente pelo valor que está depois de "code="
 const codigoPais = parametros.get('code');
 
-//Mostra no console para ver se funcionou
+// Mostra no console para ver se funcionou
 console.log("O código do país capturado é:", codigoPais);
 
 // Criamos a "receita" para buscar os dados
@@ -29,10 +29,20 @@ async function buscarDadosDoPais(codigo) {
         flagImg.src = pais.flags.svg;
         flagImg.alt = `Bandeira de ${pais.name.common}`;
         countryName.textContent = pais.translations.por.common;
-        countryCapital.textContent = `Capital: ${pais.capital ? pais.capital[0] : 'Não informada'}`
-        countryPop.textContent = `População: ${pais.population.toLocaleString('pt-BR')}`
+
+        // Guardamos a capital em uma variável para usar no clima depois
+        const capital = pais.capital ? pais.capital[0] : null;
+        countryCapital.textContent = `Capital: ${capital || 'Não informada'}`;
+        countryPop.textContent = `População: ${pais.population.toLocaleString('pt-BR')}`;
 
         console.log("Dados completos do país encontrados:", pais);
+
+        // --- CORREÇÃO: Chamando a função de clima aqui dentro ---
+        if (capital) {
+            buscarClima(capital);
+        } else {
+            document.getElementById('loading-clima').textContent = "Clima indisponível (sem capital).";
+        }
 
     } catch (erro) {
         console.error("Ops! Algo de errado na busca:", erro);
@@ -42,4 +52,39 @@ async function buscarDadosDoPais(codigo) {
 // Agora, pedimos para a receita ser executada usando o nosso código
 if (codigoPais) {
     buscarDadosDoPais(codigoPais);
+}
+
+async function buscarClima(capital) {
+    const loadingClima = document.getElementById('loading-clima');
+    const conteudoClima = document.getElementById('conteudo-clima');
+
+    try {
+        // Mostra loading para testar visual
+        loadingClima.style.display = 'block';
+        conteudoClima.style.display = 'none';
+
+        // Simula um atraso de 1,5s para simular busca
+        await new Promise(resolve => setTimeout(resolve, 1500));
+
+        // Objeto Ficticio (Mock) imitando a resposta da API
+        const dadosSimulados = {
+            main: { temp: 24.5 },
+            // CORREÇÃO: mudei de 'descripition' para 'description'
+            weather: [{ description: "Céu limpo com poucas nuvens" }]
+        };
+
+        // Preenche o HTML com dados falsos
+        document.getElementById('temp-atual').textContent = `Temperatura: ${Math.round(dadosSimulados.main.temp)}°C`;
+        // CORREÇÃO: mudei para bater com o nome certo 'description'
+        document.getElementById('condicao-clima').textContent = `Condição: ${dadosSimulados.weather[0].description}`; 
+
+        // Esconde o Loading e mostra o resultado
+        loadingClima.style.display = 'none';
+        conteudoClima.style.display = 'block';
+
+        console.log("Simulação de clima concluída para:", capital);
+    } catch (erro) {
+        console.error("Erro na simulação:", erro);
+        loadingClima.textContent = "Erro na Simulação";
+    }
 }
