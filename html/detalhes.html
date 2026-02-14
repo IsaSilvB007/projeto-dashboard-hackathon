@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do País</title>
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/main-page.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <a href="/html/index.html" class="btn-voltar">← Voltar para a Home</a>
+    </header>
+
+    <main class="container-detalhes">
+
+        <section class="info-pais-card card">
+            <div id="bandeira-container">
+            </div>
+            <div class="dados-texto">
+                <h1 id="nome-pais">Carregando...</h1>
+                <ul id="detalhes-lista">
+                </ul>
+            </div>
+        </section>
+
+        <div class="clima-grid-container">
+
+            <div class="card card-temperatura">
+                <h3>Temperatura Atual</h3>
+                <div id="temp-display">--°C</div>
+            </div>
+
+            <div class="card card-grafico">
+                <h3>Previsão para os próximos dias</h3>
+                <canvas id="grafico-clima"></canvas>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="rodape">
+        <p>Dados fornecidos por RestCountries & OpenWeather</p>
+    </footer>
+
+</body>
+
+</html>
