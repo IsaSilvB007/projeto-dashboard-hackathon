@@ -1,0 +1,37 @@
+body{
+    background-color: #f4f4f4;
+}
+
+section{
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.weather-wrapper{
+    display: flex;
+    gap: 20px;
+    flex: 1;
+}
+
+.pais-infos{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.previsao{
+    flex: 2;
+}
+
+#country-flag {
+    width: 300px;
+    border-radius: 8px;
+}
