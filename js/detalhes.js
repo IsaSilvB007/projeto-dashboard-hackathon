@@ -28,7 +28,7 @@ async function buscarDadosDoPais(codigo) {
         // Preenchendo com os dados da API
         flagImg.src = pais.flags.svg;
         flagImg.alt = `Bandeira de ${pais.name.common}`;
-        countryName.textContent = pais.name.common;
+        countryName.textContent = pais.translations.por.common;
         countryCapital.textContent = `Capital: ${pais.capital ? pais.capital[0] : 'Não informada'}`
         countryPop.textContent = `População: ${pais.population.toLocaleString('pt-BR')}`
 
