@@ -1,16 +1,15 @@
-🌍 Weather & Countries Explorer
+📊 Dashboard de Países e Clima
 
-💡 Motivação
-Este projeto não nasceu apenas para ser mais um dashboard de clima. Ele foi fruto de um Hackathon. A nossa motivação real foi mergulhar na experiência de trabalho em equipe, lidando com prazos, revisões de código (o famoso feedback "chatinho" mas necessário) e colaboração mútua.
+O Projeto
+Este dashboard foi desenvolvido como um projeto de aprendizado prático durante um Hackathon. O objetivo central não foi apenas desenvolver o projeto em si, mas vivenciar a experiência de trabalho em equipe: desde a definição do que seria construído até a escolha das tecnologias e o alinhamento do fluxo de trabalho.
 
-📝 Descrição
-Uma aplicação interativa para consulta de dados globais e meteorológicos. Mais do que o resultado final, o projeto é o registro da nossa jornada em transformar requisitos de um hackathon em uma ferramenta funcional.
+Gestão e Fluxo de Trabalho
+Um dos pontos altos deste projeto foi a organização do fluxo de trabalho. Em vez de partirmos diretamente para o código, dedicámos tempo para entender os requisitos e estruturar a colaboração:
+- Shortcut: Fundamental para a organização do fluxo. Utilizamos a ferramenta para definir o escopo através de Stories e Subtasks, o que nos deu uma visão clara do progresso e das responsabilidades de cada um durante o projeto.
+- Git & Conventional Commits: Adotamos o padrão de Conventional Commits para garantir um histórico de código limpo, padronizado e profissional, facilitando o acompanhamento das evoluções do projeto.
 
-🛠 Tecnologias e a "Nossa Base"
-Diferente de muitos projetos que partem direto para frameworks (como React ou Vue), nossa escolha consciente aqui foi fortalecer o conhecimento na base.
-
-HTML, CSS e JavaScript Vanilla: Utilizamos as tecnologias puras para garantir que dominamos os fundamentos antes de abstraí-los.
-
-APIs Rest Countries & OpenWeather: Integração direta para praticar o fluxo real de dados.
-
-Chart.js: Implementado para visualização de dados, com o desafio extra de torná-lo responsivo no "braço".
+Escolhas Técnicas: Foco na Base
+Nossa decisão consciente foi fortalecer os fundamentos. Entendemos que dominar as tecnologias base é essencial antes de utilizar abstrações mais complexas e foi o caminho ideal para o escopo do projeto:
+- Tecnologias Base: HTML, CSS e JavaScript puro .
+- Integração de APIs: Consumo das APIs REST Countries e OpenWeather para praticar o consumo de dados, tratamento de erros e estados de carregamento.
+- Chart.js: Implementação de gráficos para transformar dados em informações visuais fáceis de entender.
