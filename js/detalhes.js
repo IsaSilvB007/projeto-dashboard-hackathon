@@ -7,13 +7,35 @@ async function fetchCountryData(code) {
         const data = await response.json();
         const country = data[0];
 
-        // Preenchimento do País
+        // Bandeira e Nome
         document.getElementById('country-flag').src = country.flags.svg;
         document.getElementById('country-name').textContent = country.translations.por.common;
         
+        // Nome Nativo
+        const nativeNameObj = country.name.nativeName;
+        const nativeName = nativeNameObj ? Object.values(nativeNameObj)[0].common : country.name.common;
+        document.getElementById('native-name').textContent = nativeName;
+
+        // Capital e População
         const capital = country.capital ? country.capital[0] : null;
-        document.getElementById('country-capital').textContent = `Capital: ${capital || 'Não informada'}`;
-        document.getElementById('country-population').textContent = `População: ${country.population.toLocaleString('pt-BR')}`;
+        document.getElementById('country-capital').textContent = capital || 'Não informada';
+        document.getElementById('country-population').textContent = country.population.toLocaleString('pt-BR');
+        
+        // Sub-região
+        document.getElementById('sub-region').textContent = country.subregion || 'N/A';
+
+        // Moedas
+        const currencies = country.currencies ? 
+            Object.values(country.currencies).map(c => `${c.name} (${c.symbol})`).join(', ') : 'N/A';
+        document.getElementById('currencies').textContent = currencies;
+
+        // Idiomas
+        const languages = country.languages ? Object.values(country.languages).join(', ') : 'N/A';
+        document.getElementById('languages').textContent = languages;
+
+        // Fronteiras
+        const borders = country.borders ? country.borders.join(', ') : 'Nenhuma';
+        document.getElementById('borders').textContent = borders;
 
         if (capital) {
             fetchWeather(capital);
@@ -33,7 +55,6 @@ async function fetchWeather(capital) {
         loading.style.display = 'block';
         content.style.display = 'none';
 
-        // Simulação de delay para teste visual
         await new Promise(r => setTimeout(r, 1000));
 
         const mockWeather = {
@@ -56,7 +77,6 @@ async function fetchWeather(capital) {
 function renderChart() {
     const ctx = document.getElementById('forecast-chart').getContext('2d');
     
-    // Destrói gráfico anterior se existir (evita bugs visual de sobreposição)
     if (window.myChart) { window.myChart.destroy(); }
 
     window.myChart = new Chart(ctx, {
@@ -74,8 +94,16 @@ function renderChart() {
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false, // Permite que o CSS controle a altura
-            scales: { y: { beginAtZero: false } }
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    title: {
+                        display: true,
+                        text: 'Mín: 22°C | Máx: 25°C'
+                    }
+                }
+            }
         }
     });
 }

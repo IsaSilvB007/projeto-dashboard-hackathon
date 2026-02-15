@@ -12,18 +12,29 @@
     <title>Detalhes do País</title>
 </head>
 <body>
-    <header class="header">
-        <a href="index.html" class="btn-back">Voltar</a>
-        <h1>Detalhes do País</h1>
-    </header>
-
     <main class="container">
+        <header class="header">
+            <a href="index.html" class="btn-back">Voltar</a>
+        </header>
+
         <section class="country-card">
             <img id="country-flag" src="" alt="Country Flag">
             <div class="country-info">
                 <h2 id="country-name">Nome do País</h2>
-                <p id="country-capital">Capital: --</p>
-                <p id="country-population">População: --</p>
+                
+                <div class="info-columns">
+                    <div class="info-col">
+                        <p><strong>Nome Nativo:</strong> <span id="native-name">--</span></p>
+                        <p><strong>Capital:</strong> <span id="country-capital">--</span></p>
+                        <p><strong>População:</strong> <span id="country-population">--</span></p>
+                        <p><strong>Sub-região:</strong> <span id="sub-region">--</span></p>
+                    </div>
+                    <div class="info-col">
+                        <p><strong>Moedas:</strong> <span id="currencies">--</span></p>
+                        <p><strong>Idiomas:</strong> <span id="languages">--</span></p>
+                        <p><strong>Fronteiras:</strong> <span id="borders">--</span></p>
+                    </div>
+                </div>
             </div>
         </section>
 
