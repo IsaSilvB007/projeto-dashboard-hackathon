@@ -3,6 +3,7 @@ import { getCountriesByRegion, getPopulationByRegion, toggleChartLoading } from 
 import { renderCountriesList, renderTableSkeleton } from './ui.js';
 import { sortCountriesList } from './helpers.js';
 import { createMainPageChart } from './chart.js';
+import { CONFIG } from './config.js';
 
 export const countryService={
 
@@ -23,7 +24,8 @@ export const countryService={
   },
 
   getDetails: async(nomePais)=>{
-    const apiClimaKey = "9f42e671427e0dc7e4e705bd9ae21315";
+    
+    const apiClimaKey = CONFIG.API_CLIMA_KEY;
 
   if(!nomePais) return {erro: "Nenhum nome fornecido"}
 
