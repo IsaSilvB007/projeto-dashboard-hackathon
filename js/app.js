@@ -5,8 +5,9 @@ import { countryService } from './service.js';
 
 
 const init = async () => {
-  const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
-  const isDetailPage = window.location.pathname.endsWith('detalhes.html');
+  const path = window.location.pathname;
+  const isDetailPage = path.includes('detalhes.html');
+  const isHomePage = !isDetailPage; 
 
   if (isHomePage) {
     const tableBody = '#countries-list';
