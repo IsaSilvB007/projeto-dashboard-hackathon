@@ -25,7 +25,11 @@ jobs:
 
       - name: Generate config.js
         run: |
-          cat <<EOF > config.js
+          # 1. (Opcional por segurança) Garante que a pasta js existe
+          mkdir -p js 
+          
+          # 2. Cria o arquivo DENTRO da pasta js
+          cat <<EOF > js/config.js
           export const CONFIG = {
             WEATHER_API_KEY: '${{ secrets.WEATHER_API_KEY }}',
             COUNTRIES_BASE_URL: 'https://restcountries.com/v3.1',
