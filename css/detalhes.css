@@ -90,6 +90,10 @@ section {
 
 #weather-condition { text-transform: capitalize; color: #666; }
 
+.loader-details {
+    margin: 80px auto;
+}
+
 /* Responsividade */
 @media (max-width: 850px) {
     .country-card { flex-direction: column; text-align: center; }

@@ -17,47 +17,13 @@
             <a href="index.html" class="btn-back">Voltar</a>
         </header>
 
-        <section class="country-card">
-            <img id="country-flag" src="" alt="Country Flag">
-            <div class="country-info">
-                <h2 id="country-name">Nome do País</h2>
-                
-                <div class="info-columns">
-                    <div class="info-col">
-                        <p><strong>Nome Nativo:</strong> <span id="native-name">--</span></p>
-                        <p><strong>Capital:</strong> <span id="country-capital">--</span></p>
-                        <p><strong>População:</strong> <span id="country-population">--</span></p>
-                        <p><strong>Sub-região:</strong> <span id="sub-region">--</span></p>
-                    </div>
-                    <div class="info-col">
-                        <p><strong>Moedas:</strong> <span id="currencies">--</span></p>
-                        <p><strong>Idiomas:</strong> <span id="languages">--</span></p>
-                        <p><strong>Fronteiras:</strong> <span id="borders">--</span></p>
-                    </div>
-                </div>
-            </div>
+        <section id="country-details" class="country-card">
+            <span class="loader loader-details"></span>
         </section>
-
-        <div class="weather-wrapper">
-            <section class="weather-card">
-                <h3>Clima na Capital</h3>
-                <div id="weather-loading">Carregando clima...</div>
-                <div id="weather-content" style="display: none;">
-                    <p id="current-temp">--°C</p>
-                    <p id="weather-condition">--</p>
-                </div>
-            </section>
-
-            <section class="forecast-card">
-                <h3>Previsão dos Próximos Dias</h3>
-                <div class="chart-container">
-                    <canvas id="forecast-chart"></canvas>
-                </div>
-            </section>
-        </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/detalhes.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/app.js" type="module"></script>
 </body>
 </html>
