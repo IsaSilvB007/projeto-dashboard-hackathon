@@ -1,0 +1,49 @@
+/* =========================
+   RESET CSS - Base limpa
+   ========================= */
+
+/* Remove margens e paddings padrões */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Melhor leitura e suavidade */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* Fonte padrão e cor base */
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+}
+
+/* Remove estilo padrão de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Imagens responsivas */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Listas sem bullets */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Botões sem estilo estranho */
+button,
+input,
+textarea {
+  font: inherit;
+  border: none;
+  outline: none;
+}

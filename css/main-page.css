@@ -1,0 +1,203 @@
+main{
+  max-width: 1200px;
+  margin: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.charts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+}
+
+.charts-container > div {
+  position: relative; 
+  flex: 1 1 45%;
+  min-width: 300px;
+  height: 380px;
+  background-color: var(--card-bg-color);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#search-input, 
+#region-filter {
+  width: 100%;
+  height: 48px;
+  padding: 0 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+#region-filter {
+  background-color: var(--card-bg-color);
+  padding-right: 40px; 
+  cursor: pointer;
+}
+
+#search-input:focus, #region-filter:focus {
+  outline: none;
+  box-shadow: 0 0 5px var(--focus-hover-color);
+}
+
+#country-list {
+  background-color: var(--card-bg-color);
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+.filter-form {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.input-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.country-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.country-table thead th {
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.country-table tbody td {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.country-table tbody tr:hover {
+  background-color: var(--row-hover);
+  transition: background-color 0.2s ease;
+}
+
+.country-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.flag-icon {
+  width: 32px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.badge {
+  background-color: var(--border-color);
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.btn-detail {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: transparent;
+  transition: all 0.2s;
+}
+
+.btn-detail:hover {
+  background-color: var(--border-color);
+}
+
+.icon-svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* CSS relacionado ao skeleton de carregamento da lista */
+@keyframes skeleton-loading {
+  0% { background-color: #e2e5e7; }
+  100% { background-color: #f3f4f6; }
+}
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+  border-radius: 4px;
+  display: block;
+}
+
+.td-skeleton {
+  height: 20px;
+  margin: 10px 0;
+  width: 80%;
+}
+
+.flag-skeleton {
+  width: 30px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.chart-loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .charts-container > div {
+    height: 300px;
+    flex: 1 1 100%;
+  }
+}

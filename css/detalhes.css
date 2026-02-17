@@ -1,0 +1,103 @@
+section {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 70px auto 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.btn-back:hover { background-color: #f0f0f0; }
+
+/* Grid de Informações do País */
+.country-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+#country-flag {
+    width: 250px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.country-info { flex: 1; }
+.country-info h2 { font-size: 2rem; margin-bottom: 20px; font-weight: 700; }
+
+.info-columns {
+    display: flex;
+    gap: 60px; /* Preenche o espaço vazio horizontal */
+}
+
+.info-col p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.info-col strong { color: #222; }
+
+/* Layout Clima + Gráfico */
+.weather-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.weather-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.forecast-card { flex: 2; min-width: 0; }
+
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+#current-temp {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #3498db;
+    margin: 15px 0;
+}
+
+#weather-condition { text-transform: capitalize; color: #666; }
+
+.loader-details {
+    margin: 80px auto;
+}
+
+/* Responsividade */
+@media (max-width: 850px) {
+    .country-card { flex-direction: column; text-align: center; }
+    .info-columns { flex-direction: column; gap: 0; }
+    .weather-wrapper { flex-direction: column; }
+    .chart-container { height: 250px; }
+}
