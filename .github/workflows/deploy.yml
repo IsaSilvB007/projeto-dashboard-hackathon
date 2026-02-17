@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy Vanilla JS with Config
 
 on:
   push:
@@ -8,6 +8,10 @@ permissions:
   contents: read
   pages: write
   id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -19,24 +23,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create config.js
+      - name: Generate config.js
         run: |
-          cat <<EOF > js/config.js
+          cat <<EOF > config.js
           export const CONFIG = {
             WEATHER_API_KEY: '${{ secrets.WEATHER_API_KEY }}',
             COUNTRIES_BASE_URL: 'https://restcountries.com/v3.1',
             WEATHER_BASE_URL: 'https://api.openweathermap.org/data/2.5',
-          };
+          }
           EOF
 
-      - name: Create .nojekyll
-        run: touch .nojekyll
-
-      - name: Verify files
-        run: ls -la js/
-
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
